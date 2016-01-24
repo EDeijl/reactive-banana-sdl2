@@ -1,7 +1,7 @@
 {-# LANGUAGE RecursiveDo #-}
 
 -- | Functions on events
-module Reactive.Banana.SDL2.Util ( addHandler, fire, sdlEvent, tickEvent
+module Reactive.Banana.SDL2.Util ( addHandler, fire, sdlEvent, tickEvent, tickDiffEvent
                                 , keyEvent, keyDownEvent, keyUpEvent, mouseEvent, mouseButtonEvent
                                 , keyFilter, keyUpFilter
                                 , mouseEventWithin
