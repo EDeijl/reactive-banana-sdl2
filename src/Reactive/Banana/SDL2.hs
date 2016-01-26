@@ -1,6 +1,7 @@
 module Reactive.Banana.SDL2 ( module Reactive.Banana.SDL2.Types
                             , module Reactive.Banana.SDL2.Util
                             , getSDLEventSource, runSDLPump
+                            , runCappedSDLPump
                             )where
 
 import           Control.Monad
