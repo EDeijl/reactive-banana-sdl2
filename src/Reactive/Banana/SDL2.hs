@@ -46,5 +46,14 @@ collectEvents = do
 runSDLPump :: SDLEventSource -> IO ()
 runSDLPump es = whileM (mainSDLPump es)
 
-runCappedSDLPump = undefined
+runCappedSDLPump :: Int -> SDLEventSource -> IO ()
+runCappedSDLPump rate es = do
+  startTick <- SDL.ticks
+  c <- mainSDLPump es
+  endTick <- SDL.ticks
+  let ticks = fromIntegral (endTick - startTick)
+      secsPerFrame = fromIntegral (1000 `div` rate)
+  when (ticks < secsPerFrame) $
+    delay $ secsPerFrame - ticks
+  when c $ runCappedSDLPump rate es
 
